@@ -1,19 +1,21 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs')
+const path = require('path');
+const generateMarkdown = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
-const generateREADME = ({ title, install, usage, contributors, testing, license }) => {
-  console.log("title=  ", title);
-  return
-  `#${title}
+// //function generateREADME ({ title, install, usage, contributors, testing, license }) {
+//   console.log("title=  ", title);
+//   return `#${title}
 
-  #
-   `;
-}
+//   #
+//    `;
+// }
 
   
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
+  console.log("data=", data)
 fs.writeFileSync(path.join(__dirname,fileName), data)
 }
 
@@ -55,12 +57,12 @@ function init() {
       type: 'list',
       name: 'license',
       message: 'Please select a License from the list',
-      choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']
+      choices: ['AGPLv3', 'GPLv3', 'LGPLv3', 'Mozilla', 'Apache', 'MIT', 'Boost', 'Unlicense']
     },
   ])
   .then((userResponse) => {
     console.log('userResponse= ', userResponse);
-    let readMeText = generateREADME({... userResponse});
+    let readMeText = generateMarkdown(userResponse);
     writeToFile("myReadMe.md", readMeText);
 
   })
