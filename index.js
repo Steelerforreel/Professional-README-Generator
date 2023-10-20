@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs')
 // TODO: Create an array of questions for user input
 const generateREADME = ({ title, install, usage, contributors, testing, license }) => {
+  console.log("title=  ", title);
   return
   `#${title}
 
@@ -59,6 +60,9 @@ function init() {
   ])
   .then((userResponse) => {
     console.log('userResponse= ', userResponse);
+    let readMeText = generateREADME({... userResponse});
+    writeToFile("myReadMe.md", readMeText);
+
   })
 }
 
