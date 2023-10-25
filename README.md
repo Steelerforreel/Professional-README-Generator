@@ -56,5 +56,3 @@ Please contact me via email for any questions.
 GitHub: https://github.com/Steelerforreel/
 
 Email: reelnicholas@gmail.com
-
-`;
