@@ -24,9 +24,9 @@ To provide a user with the ability to create a quality README.md file after inpu
   
 How to install this application within the command prompt.
 
-npm i
-
-
+\`\`\`
+  ${data.install}
+\`\`\`
 
 ## Usage
 
