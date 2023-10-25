@@ -3,15 +3,6 @@ const inquirer = require('inquirer');
 const fs = require('fs')
 const path = require('path');
 const generateMarkdown = require('./utils/generateMarkdown');
-// TODO: Create an array of questions for user input
-// //function generateREADME ({ title, install, usage, contributors, testing, license }) {
-//   console.log("title=  ", title);
-//   return `#${title}
-
-//   #
-//    `;
-// }
-
   
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -51,7 +42,7 @@ function init() {
     {
       type: 'input',
       name: 'testing',
-      message: 'Please include a link to display the testing of the application',
+      message: 'Please include a link for how to use your application',
     },
     {
       type: 'list',
@@ -59,6 +50,17 @@ function init() {
       message: 'Please select a License from the list',
       choices: ['AGPLv3', 'GPLv3', 'LGPLv3', 'Mozilla', 'Apache', 'MIT', 'Boost', 'Unlicense']
     },
+    {
+      type: 'input',
+      name: 'github',
+      message: 'Please provide your github username.',
+    },
+    {
+      type: 'input',
+      name: 'contact',
+      message: 'Please provide your email for contact.',
+    },
+
   ])
   .then((userResponse) => {
     console.log('userResponse= ', userResponse);
